@@ -1,6 +1,6 @@
 # _Contacts App_
 
-##### _In-browser Address Book App, 8/7/2015_
+##### _In-browser address book app, 8/7/2015_
 
 #### By _Kyle Pratuch_
 
