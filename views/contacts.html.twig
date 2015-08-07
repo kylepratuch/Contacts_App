@@ -1,0 +1,39 @@
+<html>
+<head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <title>Your Contacts</title>
+</head>
+<body>
+    <div class='container'>
+        <h1>Contacts:</h1>
+
+        {% if contacts is not empty %}
+
+            {% for contact in contacts %}
+        <ul><strong>{{ contact.getName }} </strong>
+            <li>Phone: {{ contact.getPhone }}</li>
+            <li>Address: {{ contact.getAddress}}</li>
+        </ul>
+            {% endfor %}
+
+        {% endif %}
+
+        <h1>Add a Contact:</h1>
+        <form action='/add_contact' method='post'>
+            <div class='form-group'>
+                <label for='name'>Name:</label>
+                <input id='name' name='name' class='form-control' type='text' placeholder='ex: John Doe'>
+            </div>
+            <div class='form-group'>
+                <label for='phone'>Phone Number:</label>
+                <input id='phone' name='phone' class='form-control' type='text' placeholder='ex: 555-555-5555'>
+            </div>
+            <div class='form-group'>
+                <label for='address'>Address:</label>
+                <input id='address' name='address' class='form-control' type='text' placeholder='ex: 1234 Fake St., Faketown, OR 97212'>
+            </div>
+            <button type='submit' class='btn-success'>Create</button>
+        </form>
+    </div>
+</body>
+</html>
