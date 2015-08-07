@@ -19,7 +19,7 @@
         {% endif %}
 
         <h1>Add a Contact:</h1>
-        <form action='/add_contact' method='post'>
+        <form action='/create_contact' method='post'>
             <div class='form-group'>
                 <label for='name'>Name:</label>
                 <input id='name' name='name' class='form-control' type='text' placeholder='ex: John Doe'>
@@ -34,6 +34,12 @@
             </div>
             <button type='submit' class='btn-success'>Create</button>
         </form>
+        <form action='/delete_contacts' method='post'>
+            <div class='form-group'>
+                <button type='submit' class='btn-danger'>Delete All Contacts</button>
+            </div>
+        </form>
+
     </div>
 </body>
 </html>

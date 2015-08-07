@@ -33,7 +33,7 @@ class Contact{
         $this->phone = $new_phone;
     }
 
-    function getPhone();
+    function getPhone()
     {
         return $this->phone;
     }

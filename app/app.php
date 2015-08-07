@@ -22,18 +22,18 @@
 
     /* Route: send user to page after adding contact. Diplays new contact's info. */
 
-    $app->post("/add_contact", function() use ($app) {
+    $app->post("/create_contact", function() use ($app) {
         $contact = new Contact($_POST['name'], $_POST['phone'], $_PHONE['address']);
         $contact->save();
-        return $app['twig']->render('add_contact.html.twig', array 'newcontact' => $contact));
+        return $app['twig']->render('create_contact.html.twig', array( 'newcontact' => $contact));
     });
 
     /* Route: send user to page after deleting all contacts. */
 
-    $app->post("/delete_contacts", function use ($app) {
-        Place::deleteAll();
+    $app->post("/delete_contacts", function() use ($app) {
+        Contact::deleteAll();
         return $app['twig']->render('delete_contacts.html.twig');
-    })
+    });
 
     return $app;
 ?>
