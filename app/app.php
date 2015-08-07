@@ -14,21 +14,21 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
-    /* Home route: send user to page w/ list of contacts and form to add new contact. */
+    /* Route: (Home) send user to page w/ list of contacts and form to add new contact. */
 
     $app->get("/", function() use ($app) {
         return $app['twig']->render('contacts.html.twig', array('contacts' => Contact::getAll()));
     });
 
-    /* Route: send user to page after adding contact. Diplays new contact's info. */
+    /* Route: send user to page after adding contact. Display new contact's info. */
 
     $app->post("/create_contact", function() use ($app) {
-        $contact = new Contact($_POST['name'], $_POST['phone'], $_PHONE['address']);
+        $contact = new Contact($_POST['name'], $_POST['phone'], $_POST['address']);
         $contact->save();
-        return $app['twig']->render('create_contact.html.twig', array( 'newcontact' => $contact));
+        return $app['twig']->render('create_contact.html.twig', array('newcontact' => $contact));
     });
 
-    /* Route: send user to page after deleting all contacts. */
+    /* Route: send user to confirmation page after deleting all contacts. */
 
     $app->post("/delete_contacts", function() use ($app) {
         Contact::deleteAll();
